@@ -68,4 +68,19 @@ public class Empleado {
         salario = SueldoBasico + Adicional;
         return salario;
     }
+    public void MostrarEmpleado() {
+        Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        Console.WriteLine("NOMBRE: "+Nombre);
+        Console.WriteLine("APELLIDO: "+Apellido);
+        Console.WriteLine("FECHA DE NACIMIENTO: "+FechaNacimiento);
+        Console.WriteLine("EDAD: "+CalcularEdad());
+        Console.WriteLine("ESTADO CIVIL: "+EstadoCivil);
+        Console.WriteLine("GENERO: "+Genero);
+        Console.WriteLine("FECHA DE INGRESO: "+FechaIngreso);
+        Console.WriteLine("ANTIGUEDAD: "+CalcularAntiguedad());
+        Console.WriteLine("AÑOS PARA JUBILARSE: "+CantidadAnios());
+        Console.WriteLine("SUELDO BASICO: $"+SueldoBasico);
+        Console.WriteLine("SUELDO NETO: $"+CalcularSalario());
+        Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    }
 }

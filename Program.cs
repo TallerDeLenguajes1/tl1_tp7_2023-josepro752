@@ -103,14 +103,26 @@ cargo = Cargos.Especialista;
 
 Empleado empleado3 = new Empleado(nombre,apellido,fechaNacimiento,estadoCivil,genero,fechaIngreso,sueldoBasico,cargo);
 
+List<Empleado> listaEmpleados = new List<Empleado>();
+listaEmpleados.Add(empleado1);
+listaEmpleados.Add(empleado2);
+listaEmpleados.Add(empleado3);
+
 double montoTotal = empleado1.CalcularSalario() + empleado2.CalcularSalario() + empleado3.CalcularSalario();
 
-Console.WriteLine("Nombre: "+empleado3.Nombre);
-Console.WriteLine("Apellido: "+empleado3.Apellido);
-Console.WriteLine("Fecha de Nacimiento: "+empleado3.FechaNacimiento);
-Console.WriteLine("Genero: "+empleado3.Genero);
-Console.WriteLine("Estado Civil: : "+empleado3.EstadoCivil);
-Console.WriteLine("Fecha de Ingreso: "+empleado3.FechaIngreso);
-Console.WriteLine("Sueldo basico: "+empleado3.SueldoBasico);
-Console.WriteLine("Cargo: "+empleado3.Cargo);
-Console.WriteLine("Salario: "+empleado3.CalcularSalario());
+foreach (var empleado in listaEmpleados)
+{
+    montoTotal += empleado.CalcularSalario();
+    empleado.MostrarEmpleado();
+}
+Console.WriteLine("El monto total a pagar por salarios es $"+montoTotal);
+Empleado jubilado = empleado1;
+
+foreach (var empleado in listaEmpleados)
+{
+    if(jubilado.CantidadAnios() > empleado.CantidadAnios()){
+        jubilado = empleado;
+    }
+}
+Console.WriteLine("El empleado mas cerca a jubilarse es: ");
+jubilado.MostrarEmpleado();
